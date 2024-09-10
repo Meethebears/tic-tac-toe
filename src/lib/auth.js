@@ -1,7 +1,9 @@
+import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 
-// Define authentication options
+// Define authentication options using NextAuthOptions interface
 export const authOptions = {
     // Customize authentication pages
     pages: {
@@ -11,7 +13,7 @@ export const authOptions = {
     session: {
         strategy: "jwt", // Use JSON Web Tokens (JWT) for session management
     },
-    // Added secret key
+    // added secret key
     secret: process.env.NEXT_PUBLIC_SECRET,
     // Configure authentication providers
     providers: [
@@ -24,6 +26,11 @@ export const authOptions = {
             // Configure GitHub authentication provider with environment variables
             clientId: process.env.GITHUB_ID,
             clientSecret: process.env.GITHUB_SECRET,
+        }),
+        // Configure GitHub authentication provider with environment variables
+        FacebookProvider({
+            clientId: process.env.FACEBOOK_CLIENT_ID,
+            clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
         }),
         // CredentialsProvider({}), // Include a Credentials provider (username/password)
     ],
