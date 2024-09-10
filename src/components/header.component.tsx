@@ -8,11 +8,11 @@ const Header = () => {
   const user = session?.user;
 
   return (
-    <header className="bg-stone-700">
+    <header className="bg-blue-400">
       <nav className="h-full flex justify-between container items-center px-5">
         <div>
           <Link href="/" className="text-ct-dark-600 text-2xl font-semibold">
-            OAuth
+            Tic Tac Toe
           </Link>
         </div>
         <ul className="flex items-center gap-4">
@@ -45,6 +45,20 @@ const Header = () => {
               <li className="cursor-pointer" onClick={() => signOut()}>
                 Logout
               </li>
+            </>
+          )}
+          {user && (
+            <>
+              <div className="w-[50px]">
+                <img
+                  src={user.image ? user.image : "/images/default.png"}
+                  className="max-h-36"
+                  alt={`profile photo of ${user.name}`}
+                />
+              </div>
+              <div className="flex items-center">
+                <p>{user.name}</p>
+              </div>
             </>
           )}
         </ul>
