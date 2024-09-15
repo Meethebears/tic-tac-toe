@@ -1,8 +1,9 @@
-import type { NextAuthOptions } from "next-auth";
+import { getServerSession, type NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
+import { redirect } from "next/navigation";
 
 // Define authentication options using NextAuthOptions interface
 export const authOptions: NextAuthOptions = {
@@ -36,3 +37,8 @@ export const authOptions: NextAuthOptions = {
     // CredentialsProvider({}), // Include a Credentials provider (username/password)
   ],
 };
+
+export async function LoginIsRequiredServer() {
+  const session = await getServerSession(authOptions);
+  if(!session) return redirect("/login")
+}

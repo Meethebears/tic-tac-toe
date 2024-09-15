@@ -3,9 +3,8 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
-const Header = () => {
-  const { data: session } = useSession();
-  const user = session?.user;
+const Header = (props:any) => {
+  const {user} = props
 
   return (
     <header className="bg-blue-400">

@@ -33,8 +33,7 @@ export const LoginForm = () => {
       });
 
       setLoading(false); // Set loading state back to false.
-
-      console.log(res); // Log the authentication response.
+      
       if (!res?.error) {
         router.push(callbackUrl); // Redirect to the callback URL on successful authentication.
       } else {
