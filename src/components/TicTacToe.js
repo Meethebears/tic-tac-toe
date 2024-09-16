@@ -153,7 +153,7 @@ const TicTacToe = () => {
         <main className="flex min-h-screen flex-col items-center p-24">
             <div>
                 <div className='flex justify-center items-center mb-4'>
-                    <div className='flex flex-col items-center font-extrabold text-2xl'>
+                    <div className='flex flex-col items-center font-extrabold text-2xl mr-[20px]'>
                         <div>You</div>
                         <div>{playerScore}</div>
                     </div>

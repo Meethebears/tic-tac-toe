@@ -15,11 +15,11 @@ const Header = (props:any) => {
           </Link>
         </div>
         <ul className="flex items-center gap-4">
-          <li>
+          {!user ? <li>
             <Link href="/" className="text-ct-dark-600">
               Home
             </Link>
-          </li>
+          </li> : null}
           {!user && (
             <>
               <li>
@@ -27,20 +27,10 @@ const Header = (props:any) => {
                   Login
                 </Link>
               </li>
-              <li>
-                <Link href="/register" className="text-ct-dark-600">
-                  Register
-                </Link>
-              </li>
             </>
           )}
           {user && (
             <>
-              <li>
-                <Link href="/profile" className="text-ct-dark-600">
-                  Profile
-                </Link>
-              </li>
               <li className="cursor-pointer" onClick={() => signOut()}>
                 Logout
               </li>
